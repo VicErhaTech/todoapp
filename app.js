@@ -53,16 +53,33 @@ let regUser = () => {
 
 
 
-function getTodosFromLS(e) {
-    regUser()
-    let username = JSON.parse(localStorage.getItem('username'))
-    welcome.innerText = username.toUpperCase()
-    let todos
-    if (localStorage.getItem('todosLS') === null) {
-        todos = []
-    } else {
-        todos = JSON.parse(localStorage.getItem('todosLS'))
+function getTodosFromLS() {
+    // Call the regUser function
+    regUser();
+
+    // Get username from local storage
+    let username = localStorage.getItem('username');
+
+    // Check if username exists
+    if (username) {
+        // Use innerText to set the welcome message
+        let welcome = document.getElementById('welcome');
+        welcome.innerText = username.toUpperCase();
     }
+
+    let todos;
+
+    // Check if todosLS exists in local storage
+    if (localStorage.getItem('todosLS') === null) {
+        todos = [];
+    } else {
+        // Parse todosLS into an array
+        todos = JSON.parse(localStorage.getItem('todosLS'));
+    }
+
+    // You can now work with the 'todos' array
+    // ...
+}
 
     todos.forEach(function (todolocals) {
 
