@@ -259,4 +259,3 @@ function saveLoginDetails(email, password) {
     console.log('Saved Password:', savedDetails.password);
   }
   
-  
